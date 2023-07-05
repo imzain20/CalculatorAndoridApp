@@ -12,15 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="95dp"
         android:layout_margin="5dp"
-        android:hint="@string/result"
+
         android:textAlignment="textEnd"
         android:textColor="#673A67"
-        android:textSize="50dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent"></EditText>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,DuplicateSpeakableTextCheck,SpUsage,TextFields,TextSizeCheck,VisualLintTextFieldSize"></EditText>
 
 
     <EditText
@@ -28,31 +29,326 @@
         android:layout_width="match_parent"
         android:layout_height="95dp"
         android:layout_margin="5dp"
-        android:hint="@string/AC"
+
         android:textAlignment="textEnd"
         android:textColor="#673A67"
-        android:textSize="50dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@id/calculation"></EditText>
+        app:layout_constraintTop_toBottomOf="@id/calculation"
+        tools:ignore="Autofill,SpUsage,TextFields,TextSizeCheck,VisualLintTextFieldSize"></EditText>
 
     <Button
 
         android:id="@+id/AC"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
         android:layout_marginLeft="4dp"
-        android:backgroundTint="@color/yellow"
+        android:backgroundTint="@color/light_grey"
         android:text="AC"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/result"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/BACKSPACE"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/light_grey"
+        android:text="BACKSPACE"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/AC"
+        app:layout_constraintTop_toTopOf="@+id/AC"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Seven"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/grey"
+        android:textColor="@color/blue"
+        android:text="7"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/AC"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
 
 
+    <Button
 
+        android:id="@+id/Eight"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/grey"
+        android:text="8"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Seven"
+        app:layout_constraintTop_toTopOf="@id/Seven"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+
+    <Button
+
+        android:id="@+id/Nine"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/grey"
+        android:text="9"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Eight"
+        app:layout_constraintTop_toTopOf="@id/Seven"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+
+    <Button
+
+        android:id="@+id/Divide"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/blue"
+        android:text="/"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Nine"
+        app:layout_constraintTop_toTopOf="@id/Seven"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+
+    <Button
+
+        android:id="@+id/Four"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="4"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Seven"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Five"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="5"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Four"
+        app:layout_constraintTop_toBottomOf="@id/Eight"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+
+    <Button
+
+        android:id="@+id/Six"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="6"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Five"
+        app:layout_constraintTop_toBottomOf="@id/Nine"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Multiply"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/blue"
+        android:text="*"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Six"
+        app:layout_constraintTop_toBottomOf="@id/Divide"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/One"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="1"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Four"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Two"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="2"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/One"
+        app:layout_constraintTop_toBottomOf="@id/Five"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Three"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="3"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Two"
+        app:layout_constraintTop_toBottomOf="@id/Six"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Subtract"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/blue"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Three"
+        app:layout_constraintTop_toBottomOf="@id/Multiply"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+
+    <Button
+
+        android:id="@+id/Decimal"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="."
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/One"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Zero"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/grey"
+        android:text="0"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Decimal"
+        app:layout_constraintTop_toBottomOf="@id/Two"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Equalsto"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/light_blue"
+        android:text="="
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Zero"
+        app:layout_constraintTop_toBottomOf="@id/Three"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
+
+    <Button
+
+        android:id="@+id/Plus"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/blue"
+        android:text="+"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/Equalsto"
+        app:layout_constraintTop_toBottomOf="@id/Subtract"
+        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
