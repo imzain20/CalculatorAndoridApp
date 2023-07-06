@@ -14,7 +14,7 @@
         android:layout_margin="5dp"
 
         android:textAlignment="textEnd"
-        android:textColor="#673A67"
+        android:textColor="@color/white"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,7 @@
         android:layout_margin="5dp"
 
         android:textAlignment="textEnd"
-        android:textColor="#673A67"
+        android:textColor="@color/white"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -51,7 +51,7 @@
         android:text="AC"
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:textStyle="bold"
+        android:textStyle=""
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result"
         tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
@@ -68,7 +68,7 @@
         android:text="BACKSPACE"
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:textStyle="bold"
+        android:textStyle=""
         app:layout_constraintLeft_toRightOf="@id/AC"
         app:layout_constraintTop_toTopOf="@+id/AC"
         tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck"></Button>
