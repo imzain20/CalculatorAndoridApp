@@ -1,11 +1,16 @@
 package com.example.calculatorandoridapp
 
+import android.icu.text.DecimalFormat
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import net.objecthunter.exp4j.ExpressionBuilder
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,13 +44,37 @@ class MainActivity : AppCompatActivity() {
     var num1: Float = 0.0F
     var num2: Float = 0.0F
     var result_num: Float = 0.0F
+    var button_state1: Boolean =true        //consective operators not allowed
+    var check: Boolean = true               //no results when calculations end with an operator
 
     fun calculation_disp(calc:String) {
         calculation.setText(calc)
     }
 
-    fun result_disp(res:String) {
-            result.setText(res)
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun result_disp(res1:String) {
+
+        var res2 =res1
+        if (calc.endsWith("+"))
+            check=false
+        else if (calc.endsWith("-"))
+            check=false
+        else if (calc.endsWith("/"))
+            check=false
+        else if (calc.endsWith("*"))
+            check=false
+
+        if (res2.endsWith(".0") and check==true) { // Check if the decimal portion ends with ".0"
+            res2 = res2.substring(0, res2.length - 2)
+            result.setText(res2)
+
+        }
+
+        if(check==true)
+        {
+            result.setText(res2)
+        }
+
     }
 
     fun seperation(s1:String)
@@ -63,6 +92,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -88,99 +118,136 @@ class MainActivity : AppCompatActivity() {
         add = findViewById(R.id.Plus)
         equalsto = findViewById(R.id.Equalsto)
 
+
         // Code to execute when the buttons are clicked
 
         btn0.setOnClickListener {
             calc += "0"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn1.setOnClickListener {
 
             calc += "1"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn2.setOnClickListener {
             calc += "2"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn3.setOnClickListener {
             calc += "3"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn4.setOnClickListener {
             calc += "4"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn5.setOnClickListener {
             calc += "5"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn6.setOnClickListener {
             calc += "6"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn7.setOnClickListener {
             calc += "7"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn8.setOnClickListener {
             calc += "8"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn9.setOnClickListener {
             calc += "9"
             calculation_disp(calc)
+            button_state1=true
+            check=true
         }
 
         btn_backspace.setOnClickListener {
             if (calc.length != null) {
                 calc = calc.dropLast(1)
                 calculation_disp(calc)
+                button_state1=true
+                check=true
             }
+
         }
 
         decimal.setOnClickListener {
-            if(calc.isEmpty()) {
-                calc += ".0"
-                calculation_disp(calc)
-            }
-            else if(calc.isNotEmpty()){
-                calc += "."
-                calculation_disp(calc)
+            if (button_state1 == true) {
+                if (calc.isEmpty()) {
+                    calc += "0."
+                    calculation_disp(calc)
+                } else if (calc.isNotEmpty()) {
+                    calc += "."
+                    calculation_disp(calc)
+                }
+                button_state1=false
             }
         }
 
         add.setOnClickListener {
-            calc += " + "
-            operator="+"
-            calculation_disp(calc)
+            if (button_state1 == true) {
+                calc += "+"
+                operator = "+"
+                calculation_disp(calc)
+                button_state1=false
+            }
         }
 
         subtract.setOnClickListener {
-            calc += " - "
-            operator="-"
-            calculation_disp(calc)
+            if (button_state1 == true) {
+                calc += "-"
+                operator = "-"
+                calculation_disp(calc)
+                button_state1=false
+            }
         }
 
         multiply.setOnClickListener {
-            calc += " * "
-            operator="*"
-            calculation_disp(calc)
+            if (button_state1 == true) {
+                calc += "*"
+                operator = "*"
+                calculation_disp(calc)
+                button_state1=false
+            }
         }
 
         divide.setOnClickListener {
-            calc += " / "
+            if (button_state1==true)
+            calc += "/"
             operator="/"
             calculation_disp(calc)
+            button_state1=false
         }
 
         btn_ac.setOnClickListener {
@@ -188,35 +255,45 @@ class MainActivity : AppCompatActivity() {
             res = ""
             calculation_disp(calc)
             result_disp(res)
+            button_state1=true
+            check=true
         }
 
-        //parts = calc.split(" ").toString()
-
+        fun evaluateExpression(expression: String): Double {
+            return try {
+                val exp = ExpressionBuilder(expression).build()
+                exp.evaluate()
+            } catch (e: Exception) {
+                println("Error: ${e.message}")
+                0.0 // Return 0.0 or handle the error condition accordingly
+            }
+        }
 
         equalsto.setOnClickListener{
 
+
             when(operator) {
                 "+" -> {
-                    seperation(calc)
-                    res= (num1+num2).toString()
+                    val result = evaluateExpression(calc)
+                    res=result.toString()
                     result_disp(res)
                 }
 
                 "-" -> {
-                    seperation(calc)
-                    res= (num1-num2).toString()
+                    val result = evaluateExpression(calc)
+                    res=result.toString()
                     result_disp(res)
                 }
 
                 "*" -> {
-                    seperation(calc)
-                    res=(num1*num2).toString()
+                    val result = evaluateExpression(calc)
+                    res=result.toString()
                     result_disp(res)
                 }
 
                 "/" -> {
-                    seperation(calc)
-                    res=(num1/num2).toString()
+                    val result = evaluateExpression(calc)
+                    res=result.toString()
                     result_disp(res)
                 }
             }
